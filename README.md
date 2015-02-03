@@ -1,33 +1,7 @@
-docker-phabricator
-==================
-Dockerfile with debian:jessie / mysql / phabricator
+Adjusted docker-phabricator
 
+---
 
-Run
-----
-```
-docker run yesnault/docker-phabricator
-```
-
-Build and run
----------------
-
-```
-git clone https://github.com/yesnault/docker-phabricator.git
-./build.sh
-./run-server.sh
-````
-
-Go to http://localhost:8081
-
-You can connect into container with this command :
-```
-docker exec -it <containerId> bash
-```
-
-Mysql files are written on `/data/phabricator/mysql` (described in run-server.sh)
-
-Conf files are written on `/data/phabricator/conf` (described in run-server.sh)
-
-Repositories files are written on `/data/phabricator/repo` (described in run-server.sh)
+# One-off for data volume
+docker run --name="datavol_phabricator" -v /var/lib/mysql -v /var/repo -v /opt/phabricator/conf ubuntu /bin/echo phabricator data container
 

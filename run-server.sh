@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run -i -d -p 8081:80 -v /data/phabricator/mysql:/var/lib/mysql -v /data/phabricator/repo:/var/repo -v /data/phabricator/conf:/opt/phabricator/conf yesnault/docker-phabricator
+docker run -i -d -p 127.0.0.1:21001:80 --name="phabricator" --volumes-from datavol_phabricator rjbase/docker-phabricator
